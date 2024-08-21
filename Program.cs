@@ -66,11 +66,30 @@ tr1.ExecutarDivisao(7, 0);
 
 //Exercicios.MetodoExe();
 
-ConceitosPOO OB = new ConceitosPOO();
+/*ConceitosPOO OB = new ConceitosPOO();
 // Exolicar Orientção a Obejetos
 OB.ExplicarOrientacaoAObjetos();
 //Explicar a diferença entre Progrmação Estruturada e Orientada  Objeto
 OB.DiferencaEntreParadigmas();
 // Explicar os Pilares da Orientação a Objeto
-OB.ExplicarPilares();
+OB.ExplicarPilares();*/
+
+
+
+Pessoa pessoa1 = new Pessoa("Alice", 30);
+Pessoa pessoa2 = new Pessoa("Bob", 40);
+
+// 2- Usando Métodos de Instância (Métodos não estáticos).
+pessoa1.ExibirInformacoes();
+pessoa2.ExibirInformacoes();
+
+// 3- Usando Métodos Estático (Pertecen á Classe, não á instância).
+
+Pessoa.ExibirNumeroDePessoas();
+
+// 4 - Métodos de Instância VS. Membros Estáticos.
+
+Console.WriteLine($"Pessoa1: {pessoa1.Nome}, Idade: {pessoa1.Idade}");
+Console.WriteLine($"Pessoa2: {pessoa2.Nome}, Idade: {pessoa2.Idade}");
+Console.WriteLine($"Número total de pessoas: {Pessoa.NumeroDePessoas}");
 
