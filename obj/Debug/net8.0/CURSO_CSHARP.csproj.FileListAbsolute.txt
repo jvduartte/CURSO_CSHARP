@@ -26,3 +26,4 @@ C:\Users\Aluno Noite\Desktop\CURSO_CSHARP\bin\Debug\net8.0\CURSO_CSHARP.dll
 C:\Users\Aluno Noite\Desktop\CURSO_CSHARP\bin\Debug\net8.0\CURSO_CSHARP.pdb
 C:\Users\Aluno Noite\Desktop\CURSO_CSHARP\obj\Debug\net8.0\CURSO_CSHARP.genruntimeconfig.cache
 C:\Users\Aluno Noite\Desktop\CURSO_CSHARP\obj\Debug\net8.0\ref\CURSO_CSHARP.dll
+C:\Users\Aluno Noite\Desktop\CURSO_CSHARP\obj\Debug\net8.0\CURSO_CSHARP.sourcelink.json
