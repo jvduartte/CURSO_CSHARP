@@ -7,6 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Formats.Asn1.AsnWriter;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.ComponentModel;
+using System.Numerics;
+using System.Collections;
+using System.Runtime.Intrinsics.X86;
 
 
 /*
@@ -1005,9 +1009,9 @@ soma deve estar acessível apenas dentro deste método.*/
 
 
 
-    
 
-   
+
+
 
 
 
@@ -1080,3 +1084,517 @@ Use try-catch para capturar a exceção e imprima uma mensagem apropriada.*/
 Escreva um método que recebe um número inteiro. Se o número for negativo,
 lance uma ArgumentException. Capture a exceção no método Main e imprima
 uma mensagem apropriada.*/
+
+
+
+
+
+/*
+
+//Exercicio Item 1 a 3
+
+    public class Carro
+    {
+        public string Marca;
+        public string Modelo;
+        public int Ano;
+
+
+        public Carro(string marca, string modelo, int ano)
+        {
+            this.Marca = marca;
+            this.Modelo = modelo;
+            this.Ano = ano;
+
+        }
+
+        public void ExibirDetalhes()
+        {
+            Console.WriteLine($"A marca do carro e {Marca} o modelo do carro e {Modelo} e o ano do carro e {Ano}");
+        }
+    }
+
+
+
+//Exercicio Item 4 a 6
+
+
+
+    public class PessoaNova
+    {
+        public string Nome;
+        public int Idade;
+        public string Cidade;
+
+        public void ExibirInformacoes()
+        {
+            Console.WriteLine($"O nome da pessoa e {Nome} a idade da pessoa e {Idade} e a cidade da pessoa e {Cidade}");
+
+        }
+    }
+
+    public class Exercicio
+    {
+        public string Nome = "Rodrigo";
+        public int Idade = 43;
+        public void Exibir()
+        {
+            Console.WriteLine($"O nome e {Nome} a idade e{Idade}");
+
+        }
+
+        public int Soma(int n1, int n2)
+        {
+            return n1 + n2;
+        }
+
+//Exercicio Item 8 Fim
+
+        public bool MostrarBoleano()
+        {
+            bool estaChovendo = false;
+
+            if (estaChovendo)
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool verificarMaioridade(int idade)
+        {
+            if (idade >= 18)
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+//Exercicio Item 9 Fim
+
+
+
+//Exercicio Item 10
+
+
+        public void ExibirAltura()
+        {
+            Double altura = 1.7554646546546;
+            Console.WriteLine($"A altura e {altura:F2}");
+        }
+
+        public double CalcularArea(double raio)
+        {
+            return ((raio * raio) * 3.14);
+        }
+
+        public double CalcularArea(double l, double h)
+        {
+            return l * h;
+        }
+
+        public void ExibirChar()
+        {
+            char letra = 'A';
+            Console.WriteLine($"O caractere e {letra}");
+        }
+        public void ExibirNota(double nota)
+        {
+            if (nota >= 7)
+            {
+                Console.WriteLine("Aprovado");
+            }
+            else
+            {
+                Console.WriteLine("Reprovado");
+            }
+        }
+
+//Exercicio Item 10 Fim
+
+        public long Fatorial(int n)
+        {
+            if (n == 0)
+            {
+                return 1; // O fatorial de 0 é 1
+            }
+
+            long resultado = 1;
+
+            for (int i = 1; i <= n; i++)
+            {
+                resultado *= i;
+            }
+
+            return resultado;
+
+        }
+
+
+
+
+    }
+    public class Calculadora
+    {
+        public double Multiplicar(double n1, double n2)
+        {
+            return (n1 * n2);
+        }
+        public double Multiplicar(double n1, double n2, double n3)
+        {
+            return (n1 * n2 * n3);
+        }
+    }
+
+    public class FluxoLoop
+    {
+        public void ExibirLoop()
+        {
+            for (int i = 1; i <= 10; i++)
+            {
+                Console.WriteLine($"{i}");
+            }
+        }
+
+        public void ExibirLoopWhile()
+        {
+            int contador = 10;
+            while (contador >= 1)
+            {
+                Console.WriteLine($"{contador}");
+                contador--;
+            }
+        }
+        public void ImprimirPares(int n)
+        {
+            int contador = 1;
+            while (contador <= n)
+            {
+                if (contador % 2 == 0)
+                {
+                    Console.WriteLine(contador);
+                }
+            }
+
+
+        }
+
+    }
+
+}
+
+*/
+
+
+/*Exercícios Teóricos
+1. Definição e Propósito:
+o Pergunta: O que significa a palavra-chave var em C# e qual é o seu propósito?
+
+
+
+A palavra-chave var em C# é usada para declarar variáveis locais com tipo implícito. 
+Isso significa que o compilador deduz o tipo da variável a partir da expressão de inicialização no lado direito da declaração. 
+O propósito de var é simplificar a sintaxe do código, tornando-o mais legível e reduzindo a necessidade de especificar explicitamente o tipo da variável
+
+
+
+
+2. Inferência de Tipo:
+o Pergunta: Como o compilador determina o tipo de uma variável quando você
+usa var?
+
+
+Quando você usa var, o compilador C# determina o tipo da variável analisando a expressão de inicialização no lado direito da declaração.
+Por exemplo, se você escrever var x = 10;, o compilador inferirá que x é do tipo int porque 10 é um valor inteiro. Esse processo é chamado
+de inferência de tipo e é realizado em tempo de compilação, garantindo que a variável seja fortemente tipada
+
+
+
+3. Regras e Restrições:
+o Pergunta: Quais são as restrições no uso da palavra-chave var em C#?
+
+
+
+Declaração e Inicialização: var só pode ser usada quando a variável é declarada e inicializada na mesma instrução. Por exemplo, var x = 10; é válido, mas var x; x = 10; não é.
+Campos de Classe: var não pode ser usada para declarar campos de classe. Ela é restrita a variáveis locais dentro de métodos.
+Inicialização com null: Não é possível inicializar uma variável var com null sem especificar um tipo explícito.
+Métodos e Parâmetros: var não pode ser usada em parâmetros de métodos ou como tipo de retorno de métodos.
+
+
+
+4. Diferença entre var e Tipos Explícitos:
+o Pergunta: Qual é a diferença entre usar var e declarar uma variável com um
+tipo explícito?
+
+
+ A principal diferença entre usar var e declarar uma variável com um tipo explícito está na forma como o tipo da variável é especificado2[3][3]:
+
+var: O tipo da variável é inferido pelo compilador com base na expressão de inicialização. Isso pode tornar o código mais conciso e legível, 
+especialmente quando o tipo é evidente ou muito longo. Por exemplo, var list = new List<int>(); é mais curto do que List<int> list = new List<int>();.
+Tipo Explícito: O tipo da variável é especificado diretamente pelo programador. Isso pode ser útil para clareza e 
+para evitar ambiguidades, especialmente quando o tipo não é imediatamente óbvio. Por exemplo, int number = 10; deixa claro que number é um inteiro.
+
+
+/*
+Declaração de Variáveis com var:
+ Exercício: Declare uma variável de cada um dos seguintes tipos usando var e
+atribua a elas valores apropriados. Depois, exiba o tipo da variável usando
+GetType() para confirmar a inferência do tipo.*/
+
+
+
+/*
+namespace CURSO_CSHARP
+{
+    public class ExerciciosVar
+    {
+        public void ExebirVar()
+        {
+            // Exemplo 1: Inferência de Tipo
+            var NumeroInteiro = 42; // O compilador infere que o tipo é int
+            var NumeroReal = 3.14; // O compilador infere que o tipo é double
+            var Texto = "Hello, World!"; // O compilador infere que o tipo é string
+
+            Console.WriteLine($"Mostre os resultados de cada tipo dentro da var: {NumeroInteiro}, {NumeroReal}, {Texto}.");
+
+        }
+
+    }
+}
+
+
+
+
+
+
+/*
+Utilizando var em Métodos de LINQ:
+ Exercício: Crie uma lista de inteiros e use um método LINQ para ordenar a lista
+em ordem crescente. Declare a variável que armazena o resultado usando var.*/
+
+
+
+/*
+namespace CURSO_CSHARP
+{
+
+    public class ExeLINQ
+    {
+        public void ExebirLINQ()
+        {
+
+            // Criação da lista de inteiros
+            List<int> numeros = new List<int> { 5, 3, 8, 1, 2 };
+
+            // Uso do LINQ para ordenar a lista em ordem crescente
+            var numerosOrdenados = numeros.OrderBy(n => n);
+
+            // Exibição dos números ordenados
+            foreach (var numero in numerosOrdenados)
+            {
+                Console.WriteLine(numero);
+
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+/*
+Declaração de Variáveis com Tipos Complexos:
+ Exercício: Declare uma variável var para um tipo complexo, como um
+Dictionary ou uma instância de uma classe personalizada. Mostre como a
+inferência de tipo funciona com tipos mais complexos.*/
+
+
+/*
+public class Pessoa
+{
+    public string Nome { get; set; }
+    public int Idade { get; set; }
+
+    public Pessoa(string nome, int idade)
+    {
+        Nome = nome;
+        Idade = idade;
+    }
+
+    public void Apresentar()
+    {
+        Console.WriteLine($"Olá, meu nome é {Nome} e eu tenho {Idade} anos.");
+    }
+}
+
+
+
+
+/*
+Refatoração de Código:
+ Exercício: Refatore o seguinte código para usar var em vez de tipos explícitos
+onde possível.*/
+
+/*
+namespace CURSO_CSHARP
+{ 
+
+    public class Refactor
+
+    {
+        List<string> refactors = new List<string> () {"Ana", "Beatriz", "Carlos" };
+        
+    }
+
+    
+
+}
+
+
+/*
+Trabalhando com Tipos Anônimos:
+ Exercício: Crie um tipo anônimo usando var para armazenar informações de
+uma pessoa (nome e idade) e exiba essas informações.*/
+
+
+
+
+/*
+1.Crie uma consulta LINQ para encontrar todos os nomes das pessoas que têm o nome
+começando com a letra &#39;A&#39; e que têm mais de 25 anos.*/
+
+
+/*
+
+namespace CURSO_CSHARP
+{
+    public class Pessoa28
+    {
+        public string Nome { get; set; }
+        public int Idade { get; set; }
+    }
+
+    
+}
+
+
+{
+    public class PessoaAtual
+{
+    public string Nome { get; set; }
+    public int Idade { get; set; }
+}
+
+/*
+    
+ 
+Outro exemplo usando if
+
+
+ public class Exercicio
+{
+    public void ExibirInfomacoes()
+    {
+
+        var ListPessoas = new List<PessoaAtual>
+            {
+                new PessoaAtual{Nome= "Rodrigo", Idade= 20 },
+                new PessoaAtual{Nome= "Bianca", Idade= 20 },
+                new PessoaAtual{Nome= "Isac", Idade= 30 },
+                new PessoaAtual{Nome= "Renato", Idade= 50 },
+                new PessoaAtual{Nome= "Renato", Idade= 30 },
+                new PessoaAtual{Nome= "Aline", Idade= 20 }
+
+            };
+
+        var pessoaComecacomAeMaior25 = ListPessoas.Where(p => p.Nome.StartsWith("A") && p.Idade > 25);
+
+        if (!pessoaComecacomAeMaior25.Any())
+        {
+            // Se a lista estiver vazia
+            Console.WriteLine("Não tem pessoas com 'A' no início do nome e idade > 25");
+        }
+        else
+        {
+            // Se a lista contiver elementos
+            foreach (var pessoa in pessoaComecacomAeMaior25)
+            {
+                Console.WriteLine($"{pessoa.Nome}, {pessoa.Idade}");
+            }
+        }
+
+    }
+}
+   */
+    
+
+
+
+
+
+/*2. Adicione uma lista de produtos com propriedades Nome e Preço. Faça uma consulta
+LINQ para encontrar os produtos cujo preço é superior à média de todos os produtos.
+
+
+
+
+3. Utilizando a lista de pessoas, crie uma consulta LINQ para listar o nome das pessoas
+em ordem alfabética reversa.
+
+
+
+
+
+4. Crie uma consulta LINQ para encontrar a pessoa mais jovem de cada cidade.
+
+
+
+
+5. Adicione uma lista de livros com propriedades Título, Autor e AnoPublicacao.
+Faça uma consulta LINQ para encontrar os livros publicados após o ano de 2000 e
+ordene-os por ano de publicação em ordem crescente.
+
+
+
+
+6. Crie uma nova lista de pessoas com pelo menos 5 pessoas e adicione uma propriedade
+Cidade à classe Pessoa2. Realize uma consulta LINQ para listar todas as pessoas de
+uma cidade específica.
+
+
+
+
+
+7. Utilizando a lista de pessoas criada anteriormente, faça uma consulta LINQ para
+encontrar a pessoa mais velha de cada cidade.
+
+
+
+8. Adicione uma nova lista de pessoas com informações de salários e crie uma consulta
+LINQ para calcular o salário médio das pessoas.
+
+
+
+
+
+9. Crie uma consulta LINQ para listar os nomes das pessoas que têm idade entre 20 e 30
+anos e ordene os resultados por nome.
+
+
+
+10. Crie uma consulta LINQ para contar quantas pessoas têm mais de 30 anos e imprimir o
+resultado.*/
